@@ -8,8 +8,7 @@ export const userReducer = (state = initialState, action) => {
     case UPDATE_USER_DATA:
       return {
         ...state,
-        user: action.payload.name,
-        pass: action.payload.pass
+        username: action.payload.username
       }
     default:
       return state;

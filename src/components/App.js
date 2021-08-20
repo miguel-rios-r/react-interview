@@ -1,15 +1,12 @@
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import Home from '../screens/home';
+import Login from '../screens/login'
+import { useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        {/* <Route exact path="/login" component={Login}/> */}
-      </Switch>
-    </BrowserRouter>
-  );
+const App = () => {
+  const { username } = useSelector((state) => state.user)
+  console.log('USER>>>>', username);
+  return username ? <Home/> : <Login/>
+
 }
 
 export default App;

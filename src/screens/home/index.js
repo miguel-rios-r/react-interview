@@ -1,14 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom"
-import userData from "../../utils/store/Store"
-import Login from "../login";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-export default function Home(){
-    console.log(userData.getState())
-    const user = userData.getState();
-    return (
-        
-            user ? <Login/> : <p>Bienvenido</p>
-        
-    )
-}
+const Home = () => {
+  const { username } = useSelector((state) => state.user)
+  return (
+    <>
+        <h1>Bienvenido! {username}</h1>
+    </>
+  );
+};
+
+export default Home;
